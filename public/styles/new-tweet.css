@@ -1,0 +1,45 @@
+/* container {
+  display: flex;
+  align-items: center;
+}
+ */
+.new-tweet {
+display: flex; 
+flex-direction: column;
+align-items: center;
+margin-bottom: 1.5em;
+}
+
+.new-tweet h2 {
+  width: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  /* how to make the other three boarders transparent */
+}
+
+#tweet-text {
+  border-style: hidden;
+border-bottom: 5px solid  #545149; 
+background-color: #f4f1ec;
+resize: none; /* dom event */
+line-height: 1;
+}
+
+
+.button {
+  color:white;
+  font-size: 18px;
+  font-family: 'Bungee', sans-serif;;
+  background-color: blue;
+}
+
+
+.button-number{ /* tweet button and 140 */
+  display: flex;
+  justify-content: space-between;  /* make them away from each other */
+  margin-top:7px;  /* give some space from the form */
+}
