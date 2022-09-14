@@ -23,6 +23,12 @@
   width: 90%;
 }
 
+.tweet-avatar-name {
+  display:flex;
+  justify-content:start;
+
+}
+
 .tweet-avatar {
   display: flex;
   align-items: center;
@@ -75,12 +81,7 @@
   cursor: pointer;
 }
 
-.icons:hover {
-  color: orange; 
-}
-
-
-.icon1:hover {
+.icons .icon1:hover {
 color: orange;
 }
 
@@ -91,8 +92,3 @@ color: orange;
 .icon3:hover {
   color: orange;
   }
-
-/* .icons:hover {
-  color: red;
-}
- */
