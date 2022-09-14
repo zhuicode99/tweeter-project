@@ -31,6 +31,9 @@
 
     <!--new-tweet CSS-->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+    <!--new-tweet CSS-->
+    <link rel="stylesheet" href="/styles/main-container.css" type="text/css" />
     
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -55,7 +58,7 @@
       </div>
     </nav>
     
-    <header>
+    <header class="main-header">
       <div class="info">
         <div class="avatar">
             <img src="/images/profile-hex.png"> 
@@ -80,6 +83,55 @@
         </div>
       </form>
     </section>
+
+    <section id="tweet-container">
+      <article class="tweet-article">
+        <header class="tweet-header">
+          <div class="tweet-avatar">
+
+            <i class="fa-sharp fa-solid fa-user-tie-hair"></i>
+          </div>
+          <h5>jason chen</h5>
+          <h5 class="userID">@jasonchen</h5>
+        </header>
+           <div class="tweet-post">
+             <p>
+              If I have seen further it is by standing on the shoulders of giants
+             </p>
+          </div>
+        <footer class="tweet-footer">
+          <p>posted ten days ago</p>
+            <div class='icons'>
+              <i class="far fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="far fa-heart"></i>
+            </div>
+        </footer>
+    </article>
+
+      <article class="tweet-article">
+        <header class="tweet-header">
+          <div class="tweet-avatar">
+            <i class="fa-sharp fa-solid fa-user-tie-hair-long"></i>
+          </div>
+          <h5>jason chen</h5>
+          <h5 class="userID">@jasonchen</h5>
+        </header>
+           <div class="tweet-post">
+             <p>
+                If I have seen further it is by standing on the shoulders of giants
+             </p>
+          </div>
+        <footer class="tweet-footer">
+          <p>posted ten days ago</p>
+            <div class='icons'>
+              <i class="far fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="far fa-heart"></i>
+            </div>
+        </footer>
+    </article>
+</section>
    </main> 
   </body>
 </html>
