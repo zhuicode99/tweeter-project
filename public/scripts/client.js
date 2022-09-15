@@ -52,7 +52,7 @@ const createTweetElement = function(tweet) {
              </p>
           </div>
         <footer class="tweet-footer">
-          <p clas="time">${tweet.created_at}</p>
+          <p clas="timeago">${tweet.created_at}</p>
             <div class='icons'>
               <div class="icon1">
                 <i class="fa-xs fa-sharp fa-solid fa-flag"></i>
@@ -93,6 +93,43 @@ const renderTweets = function(tweets) {
 renderTweets(data);
 
 
+
+/* 
+
+
+ */
+
+//loadTweets is responsible for fetching tweets from the http://localhost:8080/tweets page
+//so we can remove hard coded tweet obj
+
+const $submitTweet = $("#submit-tweet");
+
+$submitTweet.submit(function( event ) { //add an event listener that listens for the submit event
+
+  event.preventDefault();//prevent the default behaviour of the submit event (data submission and page refresh)
+
+  const $serializedData = $("#tweet-text").serialize();//.serialize() function turns a set of form data into a query string
+  
+  const $tweetInput = $("#tweet-text").val()
+
+  if ( $tweetInput === null) {
+    alert('tweets must contain at least one character!')
+  } else if ($tweetInput.length > 140) {
+    alert('tweets must be 140 character or fewer!')
+  } else {
+    $.ajax("/tweets", { //create an AJAX POST request in client.js that sends the form data to the server.
+      type: "POST",
+      data: $serializedData,
+    })
+  }
+ 
 });
 
-
+});
+/* //event default prevent
+$( "a" ).click(function( event ) {
+  event.preventDefault();
+  $( "<div>" )
+    .append( "default " + event.type + " prevented" )
+    .appendTo( "#log" );
+}); */
