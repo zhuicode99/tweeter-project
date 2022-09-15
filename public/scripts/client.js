@@ -106,7 +106,7 @@ loadTweets();
       data: $serializedData,
     })
     .then(() => {
-      loadTweets(); // load tweets without refresh page
+      loadTweets(); // refetch tweet on submission/load tweets without refresh page
     })
     .catch(error => {
       console.log(error);
