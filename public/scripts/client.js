@@ -85,7 +85,7 @@ const loadTweets = () => {
       console.log(data);
       renderTweets(data);
     },
-    error: (error) => {
+      error: (error) => {
       console.error(error);
     }
   });
@@ -100,25 +100,29 @@ loadTweets();
   event.preventDefault();//prevent the default behaviour of the submit event (data submission and page refresh)
 
   const $serializedData = $("#tweet-text").serialize();//.serialize() function turns a set of form data into a query string
-  
   const $tweetInput = $("#tweet-text").val();
 
   if ($tweetInput === '') {
-    alert('You cannot post nothing!')
+    $(".error-text").slideDown();
+    $(".error-text span").text("Say something! Pls say something! Thank you!");
   } else if ($tweetInput.length > 140) {
-    alert('You can only post 140 character or less!')
+    $(".error-text").slideDown(); //slidedown animation
+    $(".error-text span").text("Too long. Pls rspct our abitrary limit of 140 chars! Thank You!");
   } else {
     $.ajax("/tweets", { //create an AJAX POST request in client.js that sends the form data to the server.
       type: "POST",
       data: $serializedData,
     })
     .then(() => {
+      $("#tweet-text").val(""); // then empty the tweet textarea
+      $("#tweet-text").focus(); // then refocus on textarea
       loadTweets(); // refetch tweet on submission/load tweets without refresh page
     })
     .catch(error => {
       console.log(error);
     });
   }
+  $('.error-text').slideUp('slow');//slideup after slidedown;
  
 });
 

@@ -74,7 +74,14 @@
     <!-- Page-specific (main) content here -->
    <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <dialog aria-describedby="alert-dialog" class="error-text">
+        <div class="error-message">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <span id="alert-dialog"></span>
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </div>
+      </dialog>
+      <h2><!-- Compose Tweet --></h2>
       <form action="/tweets" method="POST" id="submit-tweet">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
@@ -86,68 +93,8 @@
     </section>
 
     <section id="tweets-container">
-      <!-- <article class="tweet-article">
-        <header class="tweet-header">
-            <div class="tweet-avatar-name">
-              <div class="tweet-avatar">
-                <a class="avatar-img"><img src="https://i.imgur.com/73hZDYK.png"></a>
-              </div>
-              <h5>jason chen</h5>
-            </div>
-          <h5 class="userID">@jasonchen</h5>
-        </header>
-           <div class="tweet-post">
-             <p>
-              If I have seen further it is by standing on the shoulders of giants
-             </p>
-          </div>
-        <footer class="tweet-footer">
-          <p>posted 6 days ago</p>
-            <div class='icons'>
-              <div class="icon1">
-                <i class="fa-xs fa-sharp fa-solid fa-flag"></i>
-              </div>
-              <div class="icon2">
-                  <i class="fa-xs fa-solid fa-retweet"></i>
-              </div>
-              <div class="icon3">
-                  <i class="fa-xs fa-solid fa-heart"></i>
-              </div>
-            </div>  
-        </footer>
-    </article>
-
-      <article class="tweet-article">
-        <header class="tweet-header">
-          <div class="tweet-avatar-name">
-            <div class="tweet-avatar">
-              <a class="avatar-img"><img src="https://i.imgur.com/nlhLi3I.png"></a>
-            </div>
-            <h5>nancy lee</h5>
-          </div>
-          <h5 class="userID">@nancy lee</h5>
-        </header>
-           <div class="tweet-post">
-             <p>
-                Another beautiful day!
-             </p>
-          </div>
-        <footer class="tweet-footer">
-          <p>posted 10 days ago</p>
-            <div class='icons'>
-              <div class="icon1">
-                <i class="fa-xs fa-sharp fa-solid fa-flag"></i>
-              </div>
-              <div class="icon2">
-                  <i class="fa-xs fa-solid fa-retweet"></i>
-              </div>
-              <div class="icon3">
-                  <i class="fa-xs fa-solid fa-heart"></i>
-              </div>
-            </div>
-        </footer>
-    </article> -->
-</section>
+     
+    </section>
    </main> 
   </body>
 </html>

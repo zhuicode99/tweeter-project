@@ -43,3 +43,25 @@ line-height: 1;
   justify-content: space-between;  /* make them away from each other */
   margin-top:7px;  /* give some space from the form */
 }
+
+
+/* error line */
+
+/* .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height:max-content;
+} */
+
+
+.error-text {
+  font-size: auto;
+ text-align: center;
+ height: 2em; 
+ margin-bottom: .1em;
+  color: #cd4444;
+  width: 90%;
+}
+
