@@ -16,6 +16,13 @@ const createTweetElement = function(tweet) {
       postTime = postTime + ' days ago';
     };
   
+// use escape to prevent XSS-cross site scripting
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str)); //add escape in textarea to prevent xss
+  return div.innerHTML;  
+};
+
   //convert html to JQuary
   const $tweet = `
   <article class="tweet-article">
@@ -30,7 +37,7 @@ const createTweetElement = function(tweet) {
         </header>
            <div class="tweet-post-container">
              <p class="tweet-post">
-             ${tweet.content.text}
+             ${escape(tweet.content.text)} 
              </p>
           </div>
         <footer class="tweet-footer">
@@ -59,7 +66,7 @@ $('#tweets-container').append($tweet);  */
 
 const renderTweets = function(tweets) {
   // empty/reset the section before loading tweets
-  /* $("#tweet-container").empty(); */
+  /* $("tweet-post").empty(); */
   for (let eachTweet of tweets) { 
     const $tweet = createTweetElement(eachTweet);// create tweet element for each tweet in the array.
     // Load newest tweets first
