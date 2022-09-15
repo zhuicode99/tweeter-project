@@ -4,37 +4,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-// Fake data taken from initial-tweets.json
-
-/* const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-] */
 $(document).ready(() => {
 
-
 const createTweetElement = function(tweet) {
+  //convert posted time to day/s
+  const msPerDay = 1000 * 60 * 60 * 24;
+  let postTime = Math.floor((Date.now() - tweet.created_at)/msPerDay);
+    if (postTime < 2) {
+      postTime = postTime + ' day ago'; 
+    } else {
+      postTime = postTime + ' days ago';
+    };
+  
+  //convert html to JQuary
   const $tweet = `
   <article class="tweet-article">
         <header class="tweet-header">
@@ -52,7 +34,7 @@ const createTweetElement = function(tweet) {
              </p>
           </div>
         <footer class="tweet-footer">
-          <p clas="timeago">${tweet.created_at}</p>
+          <p clas="timeago">${postTime}</p>
             <div class='icons'>
               <div class="icon1">
                 <i class="fa-xs fa-sharp fa-solid fa-flag"></i>
@@ -77,15 +59,15 @@ $('#tweets-container').append($tweet);  */
 
 const renderTweets = function(tweets) {
   // empty/reset the section before loading tweets
-  $("#tweet-container").empty();
+  /* $("#tweet-container").empty(); */
   for (let eachTweet of tweets) { 
     const $tweet = createTweetElement(eachTweet);// create tweet element for each tweet in the array.
     // Load newest tweets first
     $("#tweets-container").prepend($tweet); // takes return value and appends it to the tweets container
   }
 }
-
 /* renderTweets(data); */
+
 
 const loadTweets = () => {
   $.ajax({
@@ -101,11 +83,10 @@ const loadTweets = () => {
     }
   });
 };
-
-
 //loadTweets is responsible for fetching tweets from the http://localhost:8080/tweets page
 //so we can remove hard coded tweet obj
 loadTweets();
+
 
   $("#submit-tweet").submit((event) => { //add an event listener that listens for the submit event
 
@@ -135,28 +116,5 @@ loadTweets();
 });
 
 });
-/* //event default prevent
-$( "a" ).click(function( event ) {
-  event.preventDefault();
-  $( "<div>" )
-    .append( "default " + event.type + " prevented" )
-    .appendTo( "#log" );
-}); */
 
 
-
-
-{/* <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>
-$(function() {
-  const $button = $('#load-more-posts');
-  $button.on('click', function () {
-    console.log('Button clicked, performing ajax call...');
-    $.ajax('more-posts.html', { method: 'GET' })
-    .then(function (morePostsHtml) {
-      console.log('Success: ', morePostsHtml);
-      $button.replaceWith(morePostsHtml);
-    });
-  });
-});
-</script> */}

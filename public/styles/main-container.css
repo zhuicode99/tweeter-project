@@ -6,9 +6,10 @@
 }
 
 .tweet-article {
+  align-items: center;
   height: 330px;
-  width: 88%;
-  margin: 0.3em;
+  width: 100%;
+  margin: .5em;
   border: 5px solid  #545149; 
 }
 
@@ -32,7 +33,6 @@
 .tweet-avatar {
   display: flex;
   align-items: center;
-  justify-content: start;
   width: 10vw;
   color: blue;
   size: 2em;
@@ -44,8 +44,7 @@
 
 
 .tweet-post-container {
-  margin-left: 0.5em; 
-  margin-right: 0.5em;
+  margin-left: 1em;
   margin-top: 70px;
   border-style: hidden;
   border-bottom: 5px solid #545149;
