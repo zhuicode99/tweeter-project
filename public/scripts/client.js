@@ -115,7 +115,7 @@ loadTweets();
   
   const $tweetInput = $("#tweet-text").val();
 
-  if ($tweetInput === null) {
+  if ($tweetInput === '') {
     alert('tweets must contain at least one character!')
   } else if ($tweetInput.length > 140) {
     alert('tweets must be 140 character or fewer!')
