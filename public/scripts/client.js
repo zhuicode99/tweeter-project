@@ -7,7 +7,7 @@
 
 // Fake data taken from initial-tweets.json
 
-const data = [
+/* const data = [
   {
     "user": {
       "name": "Newton",
@@ -30,9 +30,9 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
-
+] */
 $(document).ready(() => {
+
 
 const createTweetElement = function(tweet) {
   const $tweet = `
@@ -81,38 +81,41 @@ const renderTweets = function(tweets) {
   for (let eachTweet of tweets) { 
     const $tweet = createTweetElement(eachTweet);// create tweet element for each tweet in the array.
     // Load newest tweets first
-    $("#tweets-container").prepend($tweet);
+    $("#tweets-container").prepend($tweet); // takes return value and appends it to the tweets container
   }
-
-
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
 }
 
-renderTweets(data);
+/* renderTweets(data); */
 
+const loadTweets = () => {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    dataType: 'json',
+    success: (data) => {
+      console.log(data);
+      renderTweets(data);
+    },
+    error: (error) => {
+      console.error(error);
+    }
+  });
+};
 
-
-/* 
-
-
- */
 
 //loadTweets is responsible for fetching tweets from the http://localhost:8080/tweets page
 //so we can remove hard coded tweet obj
+loadTweets();
 
-const $submitTweet = $("#submit-tweet");
-
-$submitTweet.submit(function( event ) { //add an event listener that listens for the submit event
+  $("#submit-tweet").submit((event) => { //add an event listener that listens for the submit event
 
   event.preventDefault();//prevent the default behaviour of the submit event (data submission and page refresh)
 
   const $serializedData = $("#tweet-text").serialize();//.serialize() function turns a set of form data into a query string
   
-  const $tweetInput = $("#tweet-text").val()
+  const $tweetInput = $("#tweet-text").val();
 
-  if ( $tweetInput === null) {
+  if ($tweetInput === null) {
     alert('tweets must contain at least one character!')
   } else if ($tweetInput.length > 140) {
     alert('tweets must be 140 character or fewer!')
@@ -121,6 +124,12 @@ $submitTweet.submit(function( event ) { //add an event listener that listens for
       type: "POST",
       data: $serializedData,
     })
+    .then(() => {
+      loadTweets(); // load tweets without refresh page
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
  
 });
@@ -133,3 +142,21 @@ $( "a" ).click(function( event ) {
     .append( "default " + event.type + " prevented" )
     .appendTo( "#log" );
 }); */
+
+
+
+
+{/* <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$(function() {
+  const $button = $('#load-more-posts');
+  $button.on('click', function () {
+    console.log('Button clicked, performing ajax call...');
+    $.ajax('more-posts.html', { method: 'GET' })
+    .then(function (morePostsHtml) {
+      console.log('Success: ', morePostsHtml);
+      $button.replaceWith(morePostsHtml);
+    });
+  });
+});
+</script> */}
