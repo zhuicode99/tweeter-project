@@ -97,9 +97,9 @@ loadTweets();
   const $tweetInput = $("#tweet-text").val();
 
   if ($tweetInput === '') {
-    alert('tweets must contain at least one character!')
+    alert('You cannot post nothing!')
   } else if ($tweetInput.length > 140) {
-    alert('tweets must be 140 character or fewer!')
+    alert('You can only post 140 character or less!')
   } else {
     $.ajax("/tweets", { //create an AJAX POST request in client.js that sends the form data to the server.
       type: "POST",
