@@ -42,12 +42,7 @@ main {
   body {
     display: flex;
     flex-direction: row;
+    margin-top: auto;
   }
-
-  .main-header {
-    width: 30%;
-  }
-
- 
 
  }

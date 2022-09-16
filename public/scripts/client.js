@@ -99,6 +99,7 @@ loadTweets();
     $(".error-text span").text("Say something! Pls say something! Thank you!");
   } else if ($tweetInput.length > 140) {
     $("#tweet-text").val(""); // empty textarea if triggers error msg
+    $(".counter").val(140);//refresh count number back to 140
     $(".error-text").slideDown(); //slidedown animation
     $(".error-text span").text("Too long. Pls rspct our abitrary limit of 140 chars! Thank You!");
   } else {
@@ -108,6 +109,7 @@ loadTweets();
     })
     .then(() => {
       $("#tweet-text").val(""); // then empty the tweet textarea
+      $(".counter").val(140);
       $("#tweet-text").focus(); // then refocus on textarea
       loadTweets(); // refetch tweet on submission/load tweets without refresh page
     })
