@@ -1,32 +1,26 @@
-/* container {
-  display: flex;
-  align-items: center;
-}
- */
+
 .new-tweet {
 display: flex; 
 flex-direction: column;
 align-items: center;
-margin-bottom: 1.5em;
+/* margin-top: 30px;
+margin-bottom: 30px; */
+margin: 30px 10px; 
 }
 
-.new-tweet h2 {
-  width: 80%;
-}
 
-form {
+#submit-tweet {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   /* how to make the other three boarders transparent */
 }
 
 #tweet-text {
-  border-style: hidden;
+border-style: hidden;
 border-bottom: 5px solid  #545149; 
 background-color: #f4f1ec;
-resize: none; /* dom event */
-line-height: 1;
+width: 100%;
 }
 
 
@@ -41,27 +35,18 @@ line-height: 1;
 .button-number{ /* tweet button and 140 */
   display: flex;
   justify-content: space-between;  /* make them away from each other */
-  margin-top:7px;  /* give some space from the form */
+  margin-top:5px;  /* give some space from the form */
 }
 
 
-/* error line */
-
-/* .error-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height:max-content;
-} */
 
 
 .error-text {
-  font-size: auto;
+ font-size: auto;
  text-align: center;
- height: 2em; 
+ height: 3em; 
  margin-bottom: .1em;
-  color: #cd4444;
-  width: 90%;
+ color: #cd4444;
+ width: 80%;
 }
 

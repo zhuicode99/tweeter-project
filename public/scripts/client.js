@@ -8,13 +8,16 @@ $(document).ready(() => {
 
 const createTweetElement = function(tweet) {
   //convert posted time to day/s
-  const msPerDay = 1000 * 60 * 60 * 24;
+
+ /*  const msPerDay = 1000 * 60 * 60 * 24;
   let postTime = Math.floor((Date.now() - tweet.created_at)/msPerDay);
     if (postTime < 2) {
       postTime = postTime + ' day ago'; 
     } else {
       postTime = postTime + ' days ago';
-    };
+    }; */
+
+const postTime = timeago.format(tweet.created_at);
   
 // use escape to prevent XSS-cross site scripting
 const escape = function (str) {
@@ -106,6 +109,7 @@ loadTweets();
     $(".error-text").slideDown();
     $(".error-text span").text("Say something! Pls say something! Thank you!");
   } else if ($tweetInput.length > 140) {
+    $("#tweet-text").val(""); // empty textarea if triggers error msg
     $(".error-text").slideDown(); //slidedown animation
     $(".error-text span").text("Too long. Pls rspct our abitrary limit of 140 chars! Thank You!");
   } else {
@@ -122,7 +126,7 @@ loadTweets();
       console.log(error);
     });
   }
-  $('.error-text').slideUp('slow');//slideup after slidedown;
+  $('.error-text').slideUp(3000);//slideup after slidedown;
  
 });
 

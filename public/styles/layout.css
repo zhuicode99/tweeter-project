@@ -24,13 +24,30 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  justify-content: center;
+  width: 100%;
+  margin-right: 8%;
   background-color: #f4f1ec;
 }
+
+
+
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
 
+ @media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main-header {
+    width: 30%;
+  }
+
+ 
+
+ }

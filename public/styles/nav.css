@@ -2,20 +2,17 @@ nav {
   display: flex;
   position: fixed;
   justify-content: space-between; /*to make left and right-nav apart*/
-  /* font-family: 'Source Sans Pro', sans-serif; */
   color:#FFFFFF;
   background-color: #4056A1;
   height: 120px;
   width: 100%;
- /*  padding-left: 1.5em;
-  padding-right: 1.5em; */
 }
 
 #logo {
   display: flex;
   font-family: 'Bungee', sans-serif;
   align-items: center;
-  font-size: 46px;
+  font-size: 36px;
   margin: 1.5em;
   margin-bottom: 0.8em;
 }
@@ -35,4 +32,14 @@ nav {
 
 .rightNav p {
   margin-bottom: .1em;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: #10bbc7;
+    background-image: url("https://www.transparenttextures.com/patterns/food.png");
+    height: 120px;
+  }
 }
