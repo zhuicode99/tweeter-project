@@ -4,9 +4,9 @@ Tweeter will render an in-browser interface and interact with a JSON API. The cl
 
 It's a great project to practice HTML, CSS, JS, jQuery and AJAX front-end skills, and Node, Express back-end skills.
 
-!["Desktop-View"](#)
-!["Tablet-View"](#)
-!["Detailed-View"](#)
+!["Desktop-View"](https://github.com/zhuicode99/tweeter-project/blob/master/docs/desktopsize.png)
+!["Tablet-View"](https://github.com/zhuicode99/tweeter-project/blob/master/docs/tabletsize.png)
+!["Detailed-View"](https://github.com/zhuicode99/tweeter-project/blob/master/docs/tweets.png)
 
 ## Getting Started
 
