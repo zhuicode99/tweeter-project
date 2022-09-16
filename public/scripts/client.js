@@ -7,17 +7,17 @@
 $(document).ready(() => {
 
 const createTweetElement = function(tweet) {
-  //convert posted time to day/s
-const postTime = timeago.format(tweet.created_at);
+  
+  const postTime = timeago.format(tweet.created_at);//use imported timeago format for tweets post time
   
 // use escape to prevent XSS-cross site scripting
-const escape = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str)); //add escape in textarea to prevent xss
-  return div.innerHTML;  
-};
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str)); //add escape in textarea to prevent xss
+    return div.innerHTML;  
+  };
 
-  //convert html to JQuary
+  //convert html to JQuary syntax
   const $tweet = `
   <article class="tweet-article">
         <header class="tweet-header">
@@ -51,23 +51,20 @@ const escape = function (str) {
 
   return $tweet;
 }
-/* 
-const $tweet = createTweetElement(tweetData);
-$('#tweets-container').append($tweet);  */
+
 
 
 const renderTweets = function(tweets) {
-  // empty/reset the section before loading tweets
-  /* $("tweet-post").empty(); */
   for (let eachTweet of tweets) { 
     const $tweet = createTweetElement(eachTweet);// create tweet element for each tweet in the array.
     // Load newest tweets first
     $("#tweets-container").prepend($tweet); // takes return value and appends it to the tweets container
   }
 }
-/* renderTweets(data); */
 
 
+//loadTweets is responsible for fetching tweets from the http://localhost:8080/tweets page
+//so we can remove hard coded tweet obj
 const loadTweets = () => {
   $.ajax({
     url: '/tweets',
@@ -82,12 +79,12 @@ const loadTweets = () => {
     }
   });
 };
-//loadTweets is responsible for fetching tweets from the http://localhost:8080/tweets page
-//so we can remove hard coded tweet obj
+
 loadTweets();
 
 
-  $("#submit-tweet").submit((event) => { //add an event listener that listens for the submit event
+//add an event listener that listens for the submit event
+$("#submit-tweet").submit((event) => { 
 
   event.preventDefault();//prevent the default behaviour of the submit event (data submission and page refresh)
 
