@@ -8,15 +8,6 @@ $(document).ready(() => {
 
 const createTweetElement = function(tweet) {
   //convert posted time to day/s
-
- /*  const msPerDay = 1000 * 60 * 60 * 24;
-  let postTime = Math.floor((Date.now() - tweet.created_at)/msPerDay);
-    if (postTime < 2) {
-      postTime = postTime + ' day ago'; 
-    } else {
-      postTime = postTime + ' days ago';
-    }; */
-
 const postTime = timeago.format(tweet.created_at);
   
 // use escape to prevent XSS-cross site scripting
@@ -31,9 +22,7 @@ const escape = function (str) {
   <article class="tweet-article">
         <header class="tweet-header">
             <div class="tweet-avatar-name">
-              <div class="tweet-avatar">
-                <a class="avatar-img"><img src="${tweet.user.avatars}"></a>
-              </div>
+              <a class="tweet-avatar"><img src="${tweet.user.avatars}"></a>
               <h5 class="avatar-name">${tweet.user.name}</h5>
             </div>
           <h5 class="userID">${tweet.user.handle}</h5>
